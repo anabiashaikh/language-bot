@@ -1,0 +1,8 @@
+.env
+chats.db
+__pycache__/
+*.pyc
+venv/
+.ipynb_checkpoints/
+.vscode/
+faiss_index/

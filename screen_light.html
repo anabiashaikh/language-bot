@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abyssal AI | The Aquatic Sanctuary</title>
+<!-- Google Fonts: Manrope for Headlines, Inter for Body -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8faf9",
+                        "tertiary": "#3e464a",
+                        "tertiary-fixed": "#dbe4e8",
+                        "outline-variant": "#bec9c5",
+                        "surface-dim": "#d8dada",
+                        "surface-container-high": "#e6e9e8",
+                        "on-primary-container": "#94e5d5",
+                        "outline": "#6e7976",
+                        "tertiary-fixed-dim": "#bfc8cc",
+                        "surface-variant": "#e1e3e2",
+                        "tertiary-container": "#555e62",
+                        "secondary-fixed-dim": "#71d7cd",
+                        "inverse-on-surface": "#eff1f0",
+                        "on-secondary-fixed": "#00201d",
+                        "on-surface-variant": "#3e4946",
+                        "on-primary-fixed-variant": "#005046",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2e3131",
+                        "secondary-fixed": "#8ef4e9",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8faf9",
+                        "surface": "#f8faf9",
+                        "on-primary-fixed": "#00201b",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#141d20",
+                        "secondary-container": "#8bf1e6",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eceeed",
+                        "on-background": "#191c1c",
+                        "inverse-primary": "#84d5c5",
+                        "on-tertiary-container": "#ced7db",
+                        "primary-fixed-dim": "#84d5c5",
+                        "primary": "#004f45",
+                        "surface-container-low": "#f2f4f3",
+                        "surface-tint": "#046b5e",
+                        "on-tertiary-fixed-variant": "#3f484c",
+                        "on-surface": "#191c1c",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#00504a",
+                        "secondary": "#006a63",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#a0f2e1",
+                        "on-secondary-container": "#006f67",
+                        "surface-container-highest": "#e1e3e2",
+                        "primary-container": "#00695c",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-sea-gradient {
+            background: linear-gradient(135deg, #004f45 0%, #00695c 100%);
+        }
+        .glass-bubble {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8faf9;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface bg-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-teal-950/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(25,28,28,0.05)]">
+<div class="flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-full bg-teal-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-teal-800" data-icon="bubble_chart">bubble_chart</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-teal-800 to-teal-600 font-headline tracking-tight">Ethereal Intelligence</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#84d5c5] animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-teal-900/40">Neural Network Active</span>
+</div>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex items-center gap-6">
+<a class="text-teal-700 font-semibold transition-all hover:bg-teal-50/50 p-2 rounded-lg" href="#">Chat</a>
+<a class="text-teal-900/60 dark:text-teal-100/60 transition-all hover:bg-teal-50/50 p-2 rounded-lg" href="#">Explore</a>
+<a class="text-teal-900/60 dark:text-teal-100/60 transition-all hover:bg-teal-50/50 p-2 rounded-lg" href="#">History</a>
+</nav>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional woman with a calm expression, soft studio lighting, neutral background, high fashion photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1L7HhRPr-WfJluoM72t9AUcpTrYY9PlPQJNoHZK1_DF27ruzrhe01OlYnJ99tZ0bbiTU8npn0QPbDbfsOX396L3sG51mQK3BloIZn2VEczgxqX3NW_ssQ2EtaQ3nvJw9S1wZCH3den74pq_x0CB5CkxI1re5BA14irIAm_067FlkGx5rusmEw4rrn6v7O04L6wNSMiR6nreA73q8PNSrS04SESdOfn-sRpof1ufL5orJbyPsPb80lCn1sILH9GPdbIcDg0i3X-A"/>
+</div>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-teal-900">more_vert</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-32 px-4 md:px-8 max-w-5xl mx-auto w-full flex flex-col gap-8">
+<!-- Welcome Section -->
+<div class="text-center py-12">
+<h2 class="text-4xl md:text-5xl font-extrabold text-teal-900 tracking-tight mb-4">Good morning, Explorer.</h2>
+<p class="text-on-surface-variant max-w-md mx-auto">The Abyssal Intelligence is synchronized and ready for your next inquiry.</p>
+</div>
+<!-- Chat History -->
+<div class="flex flex-col gap-6">
+<!-- AI Message -->
+<div class="flex flex-col gap-2 max-w-[85%] md:max-w-[70%]">
+<div class="glass-bubble p-6 rounded-lg rounded-bl-sm border border-white/20 shadow-sm">
+<p class="text-on-surface leading-relaxed">Hello! I am Abyssal AI. How can I assist your research today? I've indexed the latest oceanic data streams for your review.</p>
+</div>
+<span class="text-[10px] text-on-surface-variant/60 font-medium ml-2">Just now</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-2 max-w-[85%] md:max-w-[70%] self-end">
+<div class="signature-sea-gradient p-6 rounded-lg rounded-br-sm shadow-xl shadow-teal-900/10">
+<p class="text-white leading-relaxed">Could you analyze the correlation between deep-sea thermal vents and local biodiversity clusters in the North Atlantic?</p>
+</div>
+<span class="text-[10px] text-on-surface-variant/60 font-medium mr-2 text-right">Sent</span>
+</div>
+<!-- AI Message (Complex Layout) -->
+<div class="flex flex-col gap-2 max-w-[90%] md:max-w-[80%]">
+<div class="glass-bubble p-6 rounded-lg rounded-bl-sm border border-white/20 shadow-sm flex flex-col gap-4">
+<p class="text-on-surface leading-relaxed">Certainly. Based on my current neural mapping, I've identified three significant hotspots. Notice the atmospheric depth in these reading zones:</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+<div class="bg-surface-container-low p-4 rounded-lg flex flex-col gap-2">
+<span class="text-primary font-bold text-sm">Zone A: Reykjanes Ridge</span>
+<p class="text-xs text-on-surface-variant">High concentration of chemotrophic species observed at depths of 2,500m.</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex flex-col gap-2">
+<span class="text-primary font-bold text-sm">Zone B: Lucky Strike</span>
+<p class="text-xs text-on-surface-variant">Active vent system showing a 14% increase in crustacean density since last cycle.</p>
+</div>
+</div>
+</div>
+<span class="text-[10px] text-on-surface-variant/60 font-medium ml-2">Delivered</span>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-center gap-2 ml-2">
+<div class="flex gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-teal-800/20 animate-bounce" style="animation-delay: 0s;"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-teal-800/40 animate-bounce" style="animation-delay: 0.2s;"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-teal-800/20 animate-bounce" style="animation-delay: 0.4s;"></span>
+</div>
+<span class="text-[10px] font-semibold text-teal-800/40 uppercase tracking-widest">Abyssal is thinking</span>
+</div>
+</div>
+</main>
+<!-- Bottom Input Area -->
+<div class="fixed bottom-0 left-0 w-full z-40 px-4 pb-8 md:px-8 bg-gradient-to-t from-background via-background/90 to-transparent">
+<div class="max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest/80 backdrop-blur-2xl rounded-full p-2 flex items-center gap-2 shadow-[0_20px_50px_rgba(25,28,28,0.08)] border border-white/40">
+<button class="p-3 rounded-full text-teal-800/40 hover:bg-teal-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-on-surface placeholder-teal-900/30 font-medium px-2" placeholder="Explore the depths of intelligence..." type="text"/>
+<div class="flex items-center gap-1 pr-2">
+<button class="p-3 rounded-full text-teal-800/40 hover:bg-teal-50 transition-colors hidden md:block">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button class="signature-sea-gradient text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-teal-900/20 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="arrow_upward">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- Quick Suggestions -->
+<div class="flex justify-center gap-3 mt-4 overflow-x-auto pb-2 no-scrollbar">
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-medium whitespace-nowrap hover:bg-surface-container-highest transition-colors">Analyze vent patterns</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-medium whitespace-nowrap hover:bg-surface-container-highest transition-colors">Compare salinity levels</button>
+<button class="px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-medium whitespace-nowrap hover:bg-surface-container-highest transition-colors">Generate visual map</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-8 pb-8 pt-4 bg-white/70 backdrop-blur-2xl rounded-t-[2rem] shadow-[0_-10px_40px_rgba(25,28,28,0.04)]">
+<div class="flex items-center justify-center bg-gradient-to-br from-[#004f45] to-[#00695c] text-white rounded-full p-3 shadow-lg shadow-teal-900/20">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+</div>
+<div class="flex items-center justify-center text-teal-800/40 p-3 hover:text-teal-700">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</div>
+<div class="flex items-center justify-center text-teal-800/40 p-3 hover:text-teal-700">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<div class="flex items-center justify-center text-teal-800/40 p-3 hover:text-teal-700">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</div>
+</nav>
+</body></html>

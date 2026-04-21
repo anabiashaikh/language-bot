@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Abyssal AI | RAG Chatbot</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        background: "#f8faf9",
+                        "surface-dim": "#d8dada",
+                        "surface-container-high": "#e6e9e8",
+                        "surface-container-low": "#f2f4f3",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#191c1c",
+                        "on-surface-variant": "#3e4946",
+                        primary: "#004f45",
+                        "primary-container": "#00695c",
+                    },
+                    fontFamily: {
+                        headline: ["Manrope"],
+                        body: ["Inter"],
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .signature-sea-gradient { background: linear-gradient(135deg, #004f45 0%, #00695c 100%); }
+        .glass-bubble { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(16px); }
+        body { font-family: 'Inter', sans-serif; background-color: #f8faf9; min-height: 100vh; overflow: hidden; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="text-on-surface bg-background flex text-sm md:text-base">
+
+    <!-- Mobile Sidebar Toggle Overlay -->
+    <div id="mobile-sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden transition-opacity"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed md:relative w-64 h-screen bg-[#111827] text-gray-300 z-50 flex flex-col flex-shrink-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl md:shadow-none">
+        
+        <div class="p-4 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-white font-headline">
+                <span class="material-symbols-outlined">bubble_chart</span>
+                <span class="font-bold tracking-wide">Abyssal Sessions</span>
+            </div>
+            <!-- Mobile close button -->
+            <button id="close-sidebar-btn" class="md:hidden text-gray-400 hover:text-white">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div class="p-3">
+            <button id="new-chat-btn" class="w-full flex items-center gap-2 p-3 bg-white/10 hover:bg-white/20 transition-colors rounded-lg text-white font-medium shadow-sm">
+                <span class="material-symbols-outlined text-sm">add</span>
+                New Chat
+            </button>
+        </div>
+
+        <!-- Chat History List -->
+        <div class="flex-grow overflow-y-auto mt-2 custom-scrollbar">
+            <div class="px-3 pb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">History</div>
+            <ul id="session-list" class="flex flex-col gap-1 px-2 pb-4">
+                <!-- Dynamically populated session items -->
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <div class="flex flex-col flex-grow h-screen relative">
+        
+        <!-- TopAppBar -->
+        <header class="absolute top-0 w-full z-30 bg-white/80 backdrop-blur-xl border-b border-surface-container-high shadow-sm">
+            <div class="flex items-center px-4 py-3">
+                <button id="open-sidebar-btn" class="md:hidden mr-3 p-1 rounded-md text-teal-800 hover:bg-teal-50 flex items-center">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="flex items-center gap-3">
+                    <span class="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-br from-teal-800 to-teal-600 font-headline">Ethereal Intelligence</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Scrollable Messages Area -->
+        <main id="chat-container" class="flex-grow overflow-y-auto pt-20 pb-36 px-4 md:px-8 w-full flex flex-col items-center">
+            
+            <div id="welcome-message" class="text-center py-8 hidden">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-teal-900 tracking-tight mb-3">Good morning, Explorer.</h2>
+                <p class="text-on-surface-variant max-w-sm mx-auto">Start a new query below to begin tracking regional knowledge.</p>
+            </div>
+
+            <!-- Chat History -->
+            <div id="chat-history" class="w-full max-w-3xl flex flex-col gap-6 mt-4">
+                <!-- Messages populate here -->
+            </div>
+
+            <!-- Typing Indicator -->
+            <div id="typing-indicator" class="hidden w-full max-w-3xl flex items-center gap-2 mt-4 ml-2 transition-all duration-300">
+                <div class="flex gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-800/20 animate-bounce" style="animation-delay: 0s;"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-800/40 animate-bounce" style="animation-delay: 0.2s;"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-teal-800/20 animate-bounce" style="animation-delay: 0.4s;"></span>
+                </div>
+                <span class="text-[10px] font-semibold text-teal-800/40 uppercase tracking-widest">Abyssal is thinking...</span>
+            </div>
+        </main>
+
+        <!-- Bottom Input Area -->
+        <div class="absolute bottom-0 w-full bg-gradient-to-t from-background via-background/90 to-transparent py-4 px-4 md:px-8">
+            <form id="chat-form" class="max-w-3xl mx-auto w-full">
+                <div class="bg-surface-container-lowest/90 backdrop-blur-2xl rounded-full p-2 flex items-center gap-2 shadow-[0_10px_30px_rgba(25,28,28,0.08)] border border-white/60 focus-within:ring-2 focus-within:ring-teal-500/20 transition-all">
+                    <input id="chat-input" required class="flex-grow bg-transparent border-none focus:ring-0 text-on-surface placeholder-teal-900/30 font-medium px-4 py-2" placeholder="Ask about programming languages..." type="text" autocomplete="off"/>
+                    <button type="submit" class="signature-sea-gradient text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg shadow-teal-900/20 active:scale-95 transition-transform flex-shrink-0">
+                        <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+                    </button>
+                </div>
+            </form>
+            <div class="text-center mt-2 text-[10px] text-teal-900/40">Abyssal AI can hallucinate. Check results.</div>
+        </div>
+
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
