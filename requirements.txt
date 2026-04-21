@@ -1,8 +1,6 @@
 fastapi
 uvicorn
 langchain-community
-sentence-transformers
 faiss-cpu
 langchain-google-genai
 python-dotenv
-

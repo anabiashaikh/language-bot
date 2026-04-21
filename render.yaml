@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: language-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: PORT
+        value: 8080
+    disk:
+      name: chats-data
+      mountPath: /app/data
+      sizeGB: 1
