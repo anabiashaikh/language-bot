@@ -18,8 +18,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Setup Google API Key
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY", "AIzaSyD5skHkCAC1KjKYigcUCQghUGkevBSiIUI")
+# Setup Google API Key (MUST BE SET AS AN ENVIRONMENT VARIABLE)
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY", "")
 
 app = FastAPI()
 
